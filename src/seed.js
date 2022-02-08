@@ -1,7 +1,7 @@
-export function seedDatabase(firebase) {
+export function seedDatabase({ collection , addDoc, db}) {
     const users = [
       {
-        userId: 'NvPY9M9MzFTARQ6M816YAzDJxZ72',
+        userId: 'TcJWMNOi5UaHpsoo2hAtQUllEgn2',
         username: 'karl',
         fullName: 'Karl Hadwen',
         emailAddress: 'karlhadwen@gmail.com',
@@ -15,7 +15,7 @@ export function seedDatabase(firebase) {
         fullName: 'Raffaello Sanzio da Urbino',
         emailAddress: 'raphael@sanzio.com',
         following: [],
-        followers: ['NvPY9M9MzFTARQ6M816YAzDJxZ72'],
+        followers: ['TcJWMNOi5UaHpsoo2hAtQUllEgn2'],
         dateCreated: Date.now()
       },
       {
@@ -24,7 +24,7 @@ export function seedDatabase(firebase) {
         fullName: 'Salvador Dalí',
         emailAddress: 'salvador@dali.com',
         following: [],
-        followers: ['NvPY9M9MzFTARQ6M816YAzDJxZ72'],
+        followers: ['TcJWMNOi5UaHpsoo2hAtQUllEgn2'],
         dateCreated: Date.now()
       },
       {
@@ -33,22 +33,19 @@ export function seedDatabase(firebase) {
         fullName: 'George Orwell',
         emailAddress: 'george@orwell.com',
         following: [],
-        followers: ['NvPY9M9MzFTARQ6M816YAzDJxZ72'],
+        followers: ['TcJWMNOi5UaHpsoo2hAtQUllEgn2'],
         dateCreated: Date.now()
       }
     ];
   
     // eslint-disable-next-line prefer-const
     for (let k = 0; k < users.length; k++) {
-      firebase.firestore().collection('users').add(users[k]);
+      addDoc(collection(db, 'users'), users[k])
     }
   
     // eslint-disable-next-line prefer-const
     for (let i = 1; i <= 5; ++i) {
-      firebase
-        .firestore()
-        .collection('photos')
-        .add({
+        addDoc(collection(db, 'photos'), {
           photoId: i,
           userId: '2',
           imageSrc: `/images/users/raphael/${i}.jpg`,
