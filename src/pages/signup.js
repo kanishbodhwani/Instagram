@@ -21,8 +21,7 @@ export default function Signup() {
         event.preventDefault();
 
         
-        const usernameExists = await doesUsernameExists(username);
-        console.log(usernameExists);
+        const usernameExists = await doesUsernameExists(username);        
         if(!usernameExists.length) {
             try {
                 createUserWithEmailAndPassword(auth, emailAddress, password)

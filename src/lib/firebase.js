@@ -1,5 +1,5 @@
 import {initializeApp} from "firebase/app";
-import { getAuth , signOut, signInWithEmailAndPassword , updateProfile, signInAnonymously, onAuthStateChanged} from "firebase/auth";
+import { getAuth , signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword , updateProfile, signInAnonymously, onAuthStateChanged} from "firebase/auth";
 import {getFirestore, updateDoc, arrayUnion, arrayRemove, FieldValue, query, limit, collection, doc, getDocs,setDoc, addDoc, where} from "firebase/firestore";
 import "firebase/firestore";
 import "firebase/auth";
@@ -25,6 +25,6 @@ const auth = getAuth(firebase);
 // seedDatabase(firebase);
 // seedDatabase({collection, addDoc, db});
 
-export {onAuthStateChanged,signOut, arrayUnion, arrayRemove, firebase, db, updateDoc, limit, collection, signInAnonymously, updateProfile, query, where, setDoc, addDoc, doc, getDocs ,auth, signInWithEmailAndPassword, FieldValue};
+export {onAuthStateChanged, createUserWithEmailAndPassword, signOut, arrayUnion, arrayRemove, firebase, db, updateDoc, limit, collection, signInAnonymously, updateProfile, query, where, setDoc, addDoc, doc, getDocs ,auth, signInWithEmailAndPassword, FieldValue};
 
 

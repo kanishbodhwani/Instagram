@@ -5,14 +5,14 @@ import UserContext from "../../context/user";
 
 export default function AddComment({ docId, comments , setComments , commentInput}) {
     const [comment, setComment] = useState('');
-    const { } = useContext(FirebaseContext);
+    const {} = useContext(FirebaseContext);
     const {
         user: {displayName}
     } = useContext(UserContext);
 
     const handleSubmitComment = (event) => {
         event.preventDefault();
-
+        
         return null;
     }
 
